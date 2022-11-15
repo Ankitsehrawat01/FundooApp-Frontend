@@ -1,0 +1,92 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+.main{
+  width: 570px;
+  height: 600px;
+}
+.title{
+  margin-top: 35px;
+  font-size: 35px;
+  padding-right: 375px;
+  margin-bottom: -25px;
+}
+.sub-title{
+  margin-top: 35px;
+  font-size: 35px;
+  padding-right: 60px;
+  margin-bottom: 31px;
+}
+.fieldclass {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.first {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 60px;
+}
+.username {
+  margin-right: 60px;
+}
+.reg{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  border-radius: 02%;
+  border: 1px solid rgb(230 230 230);
+  box-shadow: 1px 1px 1px 1px #f4f4f4;
+  height: auto;
+  width: auto; 
+}
+.paragraph{
+  margin-right: 225px;
+  margin-top: -25px;
+  font-size: small;
+  margin-right: 260px;
+}
+.current{
+  margin-right: 160px;
+  margin-bottom: 30px;
+}
+.password {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 60px;
+}
+.paragraph1 {
+  margin-top: -15px;
+  font-size: small;
+  margin-right: 110px;
+}
+.checkbox{
+  margin-right: 380px;
+}
+.signin {
+  margin-top: 50px;
+  margin-right: 360px;
+}
+
+.next {
+  margin-top: -30px;
+  margin-left: 330px;
+} 
+
+img {
+  height: 250px;
+  width: 250px;
+  justify-items: center;
+}
+.logo {
+  width: 240px;
+  padding-top: 250px;
+  justify-items: center;
+  padding-top: 145px;
+  text-align: center;
+  padding-right: 40px;
+}
