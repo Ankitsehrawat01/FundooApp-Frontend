@@ -1,0 +1,52 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+}
+.log{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  border-radius: 02%;
+  border: 1px solid rgb(230 230 230);
+  box-shadow: 1px 1px 1px 1px #f4f4f4;
+  height: 550px;
+  width: 500px;
+}
+.Head{
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 25px;
+}
+.sub-head{
+  text-align: center;
+  padding: 3px;
+  font-size: 20px;
+}
+.inp input{
+  padding: 15px 265px 15px 8px;
+}
+.forgot-btn{
+  margin-left: 14px;
+  margin-right: 307px;
+}
+.learn-btn {
+  margin-left: 12px;
+  margin-right: 318px;
+  margin-top: -20px;
+}
+
+.login-btn{
+  margin-top: 50px;
+  margin-left: 385px;
+}
+.createlink {
+  margin-top: -33px;
+  margin-right: 316px;
+
+}
