@@ -26,11 +26,9 @@ function Header() {
             <Button> <RefreshIcon /> </Button>
             <Button> <ViewAgendaOutlinedIcon /> </Button>
             <Button> <SettingsOutlinedIcon/> </Button>
+            <Button> <AppsOutlinedIcon  /> </Button>
+            <Button> <AccountCircleIcon /> </Button>
         </div>
-        <div className="icons3">
-          <Button> <AppsOutlinedIcon  /> </Button>
-          <Button> <AccountCircleIcon /> </Button>
-      </div>
     </div>
   )
 }
