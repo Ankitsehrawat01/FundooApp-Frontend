@@ -1,0 +1,71 @@
+body {
+    padding: 0px;
+}
+.container{
+    width: 100vw;
+    height: 10vh;
+    border: 1px solid #cecdcd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    color: black;
+    position: relative;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.logo{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 12px;
+    margin-bottom: 145px;
+}
+.keep{
+    color: #5f6368;
+    font-family: "Product Sans",Arial,sans-serif;
+    font-size: 22px;
+    opacity: 1;
+    font-weight: 500;
+    position: relative;
+    left: 18px;
+}
+.search{
+    width: 52%;
+    height: 70%;
+    background-color: #F0F0F0;
+    border: 1px solid #E0E0E0;
+    border-radius:8px ;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 125px;
+    box-shadow: 2px 2px 2px #e0e0e0;
+}
+.icon{
+    position: relative;
+    left: 15px;
+    top: 10PX;
+}
+.input{
+    position: relative;
+    left: 35px;
+    top: 7px;
+}
+.icons2{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 200px;
+}
+.icons3{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 200px;
+    justify-content: space-between;
+}
