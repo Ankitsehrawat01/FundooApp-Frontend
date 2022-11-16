@@ -1,0 +1,55 @@
+.container2 {
+    width: 100vw;
+    height: 30vh;
+    margin-top: 10px;
+    border: 0px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.note2 {
+    width: 40%;
+    height: 65%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 1px solid #cecdcd;
+    border-radius: 8px;
+    row-gap: 6px;
+}
+.noteicon {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 0px solid red;
+}
+.title1 {
+    height: 100%;
+    width: 50%;
+    border: 0px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.txt {
+    height: 33%;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.input2 {
+    bottom: 5px;
+    row-gap: 10px;
+    font-size: 15px; 
+    border: none;
+}
+.pinicon {
+    border: 0px solid black;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 70px;
+    margin-left: 380px;
+}
+.closebutton {
+    display: flex;
+    margin-left: 230px;
+}
