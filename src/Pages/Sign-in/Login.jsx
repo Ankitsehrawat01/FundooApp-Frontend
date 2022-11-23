@@ -48,7 +48,9 @@ function Login() {
      if(checkemail===true && checkpassword=== true)
     {
        loginApi(signinobj)
-       .then((response)=>{console.log(response)})
+       .then((response)=>{console.log(response)
+      localStorage.setItem("token", response.data.data)
+      })
        .catch((error)=>{console.log(error)})
        console.log("login successful")
     }
