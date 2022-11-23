@@ -14,3 +14,8 @@ export const retriveNoteAPI =() => {
     let response = axios.get('https://localhost:44342/api/Notes/RetrieveAll',headerConfig)
     return response
 }
+//to archieve notes
+export const archiveNoteAPI =(noteId) => {
+    let response = axios.put(`https://localhost:44342/api/Notes/Archive?noteId=${noteId}`,noteId ,headerConfig)
+    return response
+}

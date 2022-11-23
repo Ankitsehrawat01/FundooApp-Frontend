@@ -20,20 +20,20 @@ import { createNoteAPI } from '../../Pages/Services/dataService';
 function TakeNote2(props) {
     const [createnote, setCreateNote] = useState({
         title: '',
-        discription: ''
+        discription: '',
+        archive: false
     })
     const takeTitle =(event) => {
-        setCreateNote(prevState => ({
-            ...prevState,
-            title: event.target.value
-        }))
+        setCreateNote(prevState => ({...prevState,title: event.target.value}))
     }
 
     const takeDescription =(event) => {
-        setCreateNote(prevState => ({
-            ...prevState,
-            discription : event.target.value
-        }))
+        setCreateNote(prevState => ({...prevState, discription : event.target.value }))
+    }
+
+    const notesArchive = () => {
+        setCreateNote(prevState => ({...prevState, archive: true}))
+        console.log('Archive Successful')
     }
 
     const Create =() => {
@@ -74,7 +74,7 @@ function TakeNote2(props) {
                         <Tooltip title='Image'>
                             <IconButton> <ImageOutlinedIcon /> </IconButton>
                         </Tooltip>
-                        <Tooltip title='Archive'>
+                        <Tooltip title='Archive' onClick = {notesArchive} >
                             <IconButton> <ArchiveOutlinedIcon /> </IconButton>
                         </Tooltip>
                         <Tooltip title='More'>

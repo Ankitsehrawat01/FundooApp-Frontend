@@ -11,8 +11,15 @@ import ColorLensIcon from '@mui/icons-material/ColorLens';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
+import { archiveNoteAPI } from '../../Pages/Services/dataService';
 
 function TakeNote3(props) {
+    const archiveNotes=(id)=>{
+         archiveNoteAPI(id)
+        .then((response)=>console.log(response))
+        .catch((error)=>console.log(error))
+        console.log('Archive Successful')
+  }
   return (
     <div>
         <Box className='container3'>
@@ -44,7 +51,7 @@ function TakeNote3(props) {
                         <Tooltip title='Image'>
                             <IconButton> <ImageOutlinedIcon /> </IconButton>
                         </Tooltip>
-                        <Tooltip title='Archive'>
+                        <Tooltip title='Archive' onClick={ () => archiveNotes(props.note.noteId)}>
                             <IconButton> <ArchiveOutlinedIcon /> </IconButton>
                         </Tooltip>
                         <Tooltip title='More'>
