@@ -12,13 +12,15 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
-function TakeNote3() {
+function TakeNote3(props) {
   return (
     <div>
         <Box className='container3'>
             <Paper className='note3'>
                 <Box className='noteicon2'>
                     <Box className='txt2'>
+                    <span className='input3'>{props.note.title}</span>
+                    <span className='input3'>{props.note.discription}</span>
                         {/* <InputBase className='input3' placeholder="Title.."/>
                         <InputBase className='input3' placeholder="Take a note..." /> */}
                     </Box>

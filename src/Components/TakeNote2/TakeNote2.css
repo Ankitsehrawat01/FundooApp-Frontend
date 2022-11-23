@@ -27,19 +27,21 @@
     height: 33%;
     margin-left: 10px;
     margin-top: 15px;
+    width: 80%;
 }
 .input2 {
     bottom: 5px;
     row-gap: 10px;
     font-size: 15px; 
     border: none;
+    width: 100%;
 }
 .pinicon {
     border: 0px solid black;
     display: flex;
     justify-content: flex-end;
     margin-bottom: 70px;
-    margin-left: 380px;
+    width: 20%;
 }
 .closebutton {
     display: flex;
