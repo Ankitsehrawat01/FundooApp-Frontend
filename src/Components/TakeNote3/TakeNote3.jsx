@@ -23,7 +23,13 @@ function TakeNote3(props) {
     const colorUpdate = () => {
         props.getNote()
     }
-   
+
+    const deleteNotes = (id) => {
+        deleteNoteAPI(id)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error))
+        console.log('Delete Successful')
+    }
 
     return (
         <div>
@@ -54,7 +60,7 @@ function TakeNote3(props) {
                             <IconButton> <ColorPopper action="update" id={props.note.noteId} colorUpdate={colorUpdate} /> </IconButton>
                         </Tooltip>
                         <Tooltip title='Delete'>
-                            <IconButton> <DeleteIcon /> </IconButton>
+                            <IconButton> <DeleteIcon onClick={() => deleteNotes(props.note.noteId)}/> </IconButton>
                         </Tooltip>
                         <Tooltip title='Archive' onClick={() => archiveNotes(props.note.noteId)}>
                             <IconButton> <ArchiveOutlinedIcon /> </IconButton>
