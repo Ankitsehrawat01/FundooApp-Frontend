@@ -76,7 +76,7 @@ function TakeNote2(props) {
                             <IconButton> <PersonAddAlt1OutlinedIcon/> </IconButton>
                         </Tooltip>
                         <Tooltip title='color'>
-                            <IconButton> <ColorPopper openColorPopper={openColorPopper} /> </IconButton>
+                            <IconButton> <ColorPopper action = "create" openColorPopper={openColorPopper} /> </IconButton>
                         </Tooltip>
                         
                         <Tooltip title='Image'>

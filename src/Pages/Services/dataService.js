@@ -19,3 +19,8 @@ export const archiveNoteAPI =(noteId) => {
     let response = axios.put(`https://localhost:44342/api/Notes/Archive?noteId=${noteId}`,noteId ,headerConfig)
     return response
 }
+//to color notes
+export const updateColorNoteAPI =(input) => {
+    let response = axios.put(`https://localhost:44342/api/Notes/Color?noteId=${input.noteId}&Backgroundcolor=${input.Backgroundcolor} `,input, headerConfig)
+    return response
+}

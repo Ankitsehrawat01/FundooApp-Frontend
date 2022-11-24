@@ -15,13 +15,17 @@ function DashBoard() {
     const closeTakeNote2=()=>{
         setToggle(false)
     }
-    useEffect(() => {
+    const getNote = () => {
         retriveNoteAPI()
         .then((response)=>{console.log(response)
             setDataArray(response.data.data)
         })
          .catch((error)=>{console.log(error)})
          console.log("Notes List Retrived")
+    }
+
+    useEffect(() => {
+        getNote()
     },[])
      return (
         <div>
@@ -34,7 +38,7 @@ function DashBoard() {
                 <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '65vw', position: 'relative', left:'20%'}}>
                     {/*  list rendering to retrive our all notes array*/}
                     {
-                        dataArray.map((note) => (<TakeNote3 note= {note} />))
+                        dataArray.map((note) => (<TakeNote3 note= {note} getNote={getNote} />))
                     }
                 </div>
             </div>

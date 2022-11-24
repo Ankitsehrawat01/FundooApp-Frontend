@@ -2,16 +2,16 @@ import React from 'react'
 import '../TakeNote3/TakeNote3.css'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
 import { IconButton, Tooltip } from '@mui/material';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
-import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import { archiveNoteAPI } from '../../Pages/Services/dataService';
+import { archiveNoteAPI, deleteNoteAPI } from '../../Pages/Services/dataService';
+import ColorPopper from '../ColorPopper/ColorPopper';
 
 function TakeNote3(props) {
     const archiveNotes = (id) => {
@@ -20,10 +20,15 @@ function TakeNote3(props) {
             .catch((error) => console.log(error))
         console.log('Archive Successful')
     }
+    const colorUpdate = () => {
+        props.getNote()
+    }
+   
+
     return (
         <div>
             <Box className='container3'>
-                <Paper className='note3' style={{backgroundColor: props.note.backgroundcolor}}>
+                <Paper className='note3' style={{ backgroundColor: props.note.backgroundcolor }}>
                     <Box className='noteicon2'>
                         <Box className='txt2'>
                             <span className='input3'>{props.note.title}</span>
@@ -46,10 +51,10 @@ function TakeNote3(props) {
                             <IconButton> <PersonAddAlt1OutlinedIcon /> </IconButton>
                         </Tooltip>
                         <Tooltip title='color'>
-                            <IconButton> <ColorLensIcon /> </IconButton>
+                            <IconButton> <ColorPopper action="update" id={props.note.noteId} colorUpdate={colorUpdate} /> </IconButton>
                         </Tooltip>
-                        <Tooltip title='Image'>
-                            <IconButton> <ImageOutlinedIcon /> </IconButton>
+                        <Tooltip title='Delete'>
+                            <IconButton> <DeleteIcon /> </IconButton>
                         </Tooltip>
                         <Tooltip title='Archive' onClick={() => archiveNotes(props.note.noteId)}>
                             <IconButton> <ArchiveOutlinedIcon /> </IconButton>
