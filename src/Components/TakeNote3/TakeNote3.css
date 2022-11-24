@@ -3,6 +3,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     border: 0px solid black;
+    border-radius: 10x;
     height: 23vh;
     
     position: relative;
@@ -10,7 +11,7 @@
     margin-right: 12px;
     margin-bottom: 10px;
     margin-top: 20px;
-    box-shadow: 1px 1px 5px rgb(169, 158, 158);
+    box-shadow: 2px 2px 6px rgb(169, 158, 158);
 }
 .note3 {
     width: 20vw;

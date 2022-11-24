@@ -14,6 +14,8 @@ import { IconButton, Tooltip } from '@mui/material';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { createNoteAPI } from '../../Pages/Services/dataService';
+import ColorPopper from '../ColorPopper/ColorPopper';
+
 
 
 
@@ -21,7 +23,8 @@ function TakeNote2(props) {
     const [createnote, setCreateNote] = useState({
         title: '',
         discription: '',
-        archive: false
+        archive: false,
+        backgroundcolor: ''
     })
     const takeTitle =(event) => {
         setCreateNote(prevState => ({...prevState,title: event.target.value}))
@@ -36,6 +39,10 @@ function TakeNote2(props) {
         console.log('Archive Successful')
     }
 
+    const openColorPopper =(colour) => {
+        setCreateNote(prevState => ({...prevState, backgroundcolor: colour}))
+    }
+
     const Create =() => {
         props.closeTakeNote2()
         createNoteAPI (createnote)
@@ -47,8 +54,8 @@ function TakeNote2(props) {
     
   return (
     <div>
-        <Box className='container2' >
-            <Paper className='note2'>
+        <Box className='container2'>
+            <Paper className='note2' style={{backgroundColor: createnote.backgroundcolor}}>
                 <Box className='noteicon'>
                     <Box className='txt'>
                         <InputBase className='input2' placeholder="Title.." onChange={takeTitle}/>
@@ -69,8 +76,9 @@ function TakeNote2(props) {
                             <IconButton> <PersonAddAlt1OutlinedIcon/> </IconButton>
                         </Tooltip>
                         <Tooltip title='color'>
-                            <IconButton> <ColorLensIcon /> </IconButton>
+                            <IconButton> <ColorPopper openColorPopper={openColorPopper} /> </IconButton>
                         </Tooltip>
+                        
                         <Tooltip title='Image'>
                             <IconButton> <ImageOutlinedIcon /> </IconButton>
                         </Tooltip>
