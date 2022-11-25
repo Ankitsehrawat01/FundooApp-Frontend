@@ -29,3 +29,8 @@ export const deleteNoteAPI =(noteId) => {
     let response = axios.put(`https://localhost:44342/api/Notes/Trash?noteId=${noteId}`,noteId ,headerConfig)
     return response
 }
+//to update notes using modal
+export const updateNoteAPI =(noteId, dataObj) => {
+    let response = axios.put(`https://localhost:44342/api/Notes/Update?noteId=${noteId}`, dataObj ,headerConfig)
+    return response
+}

@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../../Components/Header/Header'
+import MiniDrawer from '../../Components/MiniDrawer/Drawer'
 import TakeNote1 from '../../Components/TakeNote1/TakeNote1'
 import TakeNote2 from '../../Components/TakeNote2/TakeNote2'
 import TakeNote3 from '../../Components/TakeNote3/TakeNote3'
 import { retriveNoteAPI } from '../Services/dataService'
 
+
 function DashBoard() {
     const [toggle, setToggle] = useState(false)
     const [dataArray, setDataArray] = useState([])
+    const [drawerToggle, setDrawerToggle] = useState(false)
+    const [noteChoice, setNoteChoice] = useState("Notes")
 
     const openTakeNote2 =() => {
         setToggle (true)
@@ -18,18 +22,54 @@ function DashBoard() {
     const getNote = () => {
         retriveNoteAPI()
         .then((response)=>{console.log(response)
-            setDataArray(response.data.data)
+            let filterNotes = []
+            if(noteChoice==="Notes")
+            {
+                filterNotes= response.data.data.filter((notes)=>{
+                    if(notes.archive===false && notes.trash===false)
+                    {
+                        return notes
+                    }
+                })
+            }
+            else if(noteChoice==="Archive")
+            {
+                filterNotes= response.data.data.filter((notes)=>{
+                    if(notes.archive===true && notes.trash===false)
+                    {
+                        return notes
+                    }
+                })
+            }
+            else if(noteChoice==="Trash")
+            {
+                filterNotes= response.data.data.filter((notes)=>{
+                    if(notes.archive===false && notes.trash===true)
+                    {
+                        return notes
+                    }
+                })
+
+            }
+            setDataArray(filterNotes)
         })
          .catch((error)=>{console.log(error)})
          console.log("Notes List Retrived")
     }
+    const headerDrawer = () => {
+        setDrawerToggle(!drawerToggle)
+    }
+    const headerDrwaer1 =(option) => {
+        setNoteChoice(option)
+    }
 
     useEffect(() => {
         getNote()
-    },[])
+    },[noteChoice])
      return (
         <div>
-            <Header />
+            <Header headerDrawer= {headerDrawer}/>
+            <MiniDrawer drawerToggle={drawerToggle} headerDrwaer1={headerDrwaer1}/>
             <div>
                 {/* conditional rendering*/}
                 {

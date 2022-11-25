@@ -2,7 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
-import { IconButton, Tooltip } from '@mui/material';
 import { updateColorNoteAPI } from '../../Pages/Services/dataService';
 
 function ColorPopper(props) {

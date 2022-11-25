@@ -4,7 +4,6 @@ import InputBase from '@mui/material/InputBase';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';

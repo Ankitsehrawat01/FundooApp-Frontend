@@ -1,11 +1,12 @@
 .container2 {
     width: 100vw;
     height: 30vh;
-    margin-top: 10px;
     border: 0px solid red;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    position: relative;
+    bottom: 40px;
 }
 .note2 {
     width: 40%;
