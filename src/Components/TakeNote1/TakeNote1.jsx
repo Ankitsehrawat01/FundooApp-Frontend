@@ -43,6 +43,47 @@ const useStyle = makeStyles({
         width: '75%',
         border: '0px solid red'
     },
+    ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
+        container1: {
+            width: '80vw',
+            left: '60px'
+        },
+        note: {
+            width: '100%',
+            height: '100%',
+        },
+        textbox: {
+            width: '50%'
+        },
+    },
+    ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
+        container1: {
+            width: '85vw',
+            left: '70px'
+        },
+        note: {
+            width: '100%',
+            height: '100%',
+        },
+        textbox: {
+            width: '70%'
+        },
+    },
+
+    ['@media only screen and (min-width: 769px) and (max-width: 1024px)']: {
+        container1: {
+            width: '65vw',
+            left: '80px'
+        },
+        note: {
+            width: '100%',
+            height: '100%',
+        },
+        textbox: {
+            width: '70%'
+        },
+
+    }
 })
 function TakeNote1(props) {
 
