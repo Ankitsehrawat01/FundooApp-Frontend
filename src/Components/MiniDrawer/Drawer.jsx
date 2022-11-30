@@ -21,9 +21,11 @@ import MailIcon from '@mui/icons-material/Mail';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ForkLeft } from '@mui/icons-material';
+import { connect } from 'react-redux';
 
 
 const drawerWidth = 240;
@@ -68,12 +70,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer(props) {
+function MiniDrawer(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const selectOption = (notechoice) => {
     props.headerDrwaer1(notechoice)
+    props.dispatch({
+      type:`${notechoice}`
+    })
   }
 
   const handleDrawerOpen = () => {
@@ -108,7 +113,7 @@ export default function MiniDrawer(props) {
             <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption("Edit")}>
               <ListItemButton>
                 <ListItemIcon>
-                 <LabelOutlinedIcon />
+                 <ModeEditOutlineOutlinedIcon />
                 </ListItemIcon>
                 <ListItemText primary = "Edit Label" />
               </ListItemButton>
@@ -134,3 +139,5 @@ export default function MiniDrawer(props) {
     </Box>
   );
 }
+
+export default connect()(MiniDrawer)

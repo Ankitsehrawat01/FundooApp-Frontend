@@ -10,6 +10,7 @@ import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
 import { Tooltip } from '@mui/material';
+import { connect } from 'react-redux';
 
 function Header(props) {
 
@@ -24,8 +25,7 @@ function Header(props) {
                 </Tooltip>
 
                 <img className='logo' src='./Assets/keeplogo.png' />
-                <div className='keep'>Keep</div>
-
+                <div className='keep'>{props.label}</div>
             </div>
             <div className="search">
                 <div className='icon'><IconButton> <SearchIcon /> </IconButton></div>
@@ -41,7 +41,6 @@ function Header(props) {
                 <Tooltip title='Settings'>
                     <IconButton> <SettingsOutlinedIcon /> </IconButton>
                 </Tooltip>
-
             </div>
             <div className='icons3'>
                 <Tooltip title='Fundoo Apps'>
@@ -54,5 +53,10 @@ function Header(props) {
         </div>
     )
 }
+const mapStateToProps=(state) => {
+    return {
+        label: state.drawerReducer.label
+    }
+}
 
-export default Header
+export default connect(mapStateToProps)(Header)

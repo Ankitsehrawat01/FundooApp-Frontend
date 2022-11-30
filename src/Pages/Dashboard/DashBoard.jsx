@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../../Components/Header/Header'
+import Headermui from '../../Components/Header/Headermui'
 import MiniDrawer from '../../Components/MiniDrawer/Drawer'
 import TakeNote1 from '../../Components/TakeNote1/TakeNote1'
 import TakeNote2 from '../../Components/TakeNote2/TakeNote2'
@@ -68,14 +69,15 @@ function DashBoard() {
     },[noteChoice])
      return (
         <div>
-            <Header headerDrawer= {headerDrawer}/>
+            {/* <Header headerDrawer= {headerDrawer}/> */}
+            <Headermui headerDrawer= {headerDrawer}/>
             <MiniDrawer drawerToggle={drawerToggle} headerDrwaer1={headerDrwaer1}/>
             <div>
                 {/* conditional rendering*/}
                 {
                     toggle ? <TakeNote2 closeTakeNote2= {closeTakeNote2}/> : <TakeNote1 openTakeNote2 ={openTakeNote2} />
                 }
-                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '65vw', position: 'relative', left:'20%'}}>
+                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '70vw', position: 'relative', left:'280px',height: 'auto'}}>
                     {/*  list rendering to retrive our all notes array*/}
                     {
                         dataArray.map((note) => (<TakeNote3 note= {note} getNote={getNote} />))

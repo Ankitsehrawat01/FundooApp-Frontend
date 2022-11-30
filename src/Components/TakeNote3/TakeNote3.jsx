@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../TakeNote3/TakeNote3.css'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { IconButton, InputBase, Tooltip } from '@mui/material';
+import { Card, IconButton, InputBase, Tooltip } from '@mui/material';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
@@ -16,8 +16,65 @@ import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
+import { makeStyles } from '@mui/styles';
+
+const useStyle= makeStyles({
+    container3: {
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        border: '0px solid black',
+        borderRadius: '10x',
+        height: '23vh',
+        position: 'relative',
+        justifyContent: 'center',
+        marginRight: '12px',
+        bottom: '30px',
+        marginBottom: '12px',
+        boxShadow: '2px 2px 6px rgb(169, 158, 158)'
+    },
+    note3: {
+        width: '20vw',
+        height: '23vh'
+    },
+    noteicon2: {
+        display: 'flex',
+        flexDirection: 'row',
+        height: '17vh'
+    
+    },
+    txt2: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '15vh',
+        textAlign: 'start',
+        paddingLeft: '10px',
+        paddingTop: '10px'
+    },
+    input3: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '5vh',
+        width: '15vw'
+    },
+    icons3: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    input4: {
+        bottom: '10px',
+        rowGap: '10px',
+        fontSize: '15px',
+        border: 'none',
+        width: '100%'
+    }
+})
 
 function TakeNote3(props) {
+
+    const classes2 = useStyle()
+
     // for modal
     const style = {
         position: 'absolute',
@@ -88,24 +145,24 @@ function TakeNote3(props) {
     }
 
     return (
-        <div>
-            <Box className='container3'>
-                <Paper className='note3' style={{ backgroundColor: props.note.backgroundcolor }}>
-                    <Box className='noteicon2'>
-                        <Box className='txt2' onClick={() => handleOpen(props.note)} >
-                            <span className='input3'>{props.note.title}</span>
-                            <span className='input3'>{props.note.discription}</span>
+        <Box>
+            <Box className={classes2.container3}>
+                <Card className={classes2.note3} style={{ backgroundColor: props.note.backgroundcolor }}>
+                    <Box className={classes2.noteicon2}>
+                        <Box className={classes2.txt2} onClick={() => handleOpen(props.note)} >
+                            <span className={classes2.input3}>{props.note.title}</span>
+                            <span className={classes2.input3}>{props.note.discription}</span>
                             {/* <InputBase className='input3' placeholder="Title.."/>
                         <InputBase className='input3' placeholder="Take a note..." /> */}
                         </Box>
-                        <div className='pinicon2'>
+                        <div className={classes2.pinicon2}>
                             <Tooltip>
                                 <IconButton> <PushPinOutlinedIcon /> </IconButton>
                             </Tooltip>
                         </div>
                     </Box>
 
-                    <Box className="icons3">
+                    <Box className={classes2.icons3}>
                         <Tooltip title='Remind me'>
                             <IconButton><AddAlertOutlinedIcon /> </IconButton>
                         </Tooltip>
@@ -125,7 +182,7 @@ function TakeNote3(props) {
                             <IconButton> <MoreVertOutlinedIcon /> </IconButton>
                         </Tooltip>
                     </Box>
-                </Paper>
+                </Card>
             </Box>
             <Modal
                 open={open}
@@ -136,8 +193,8 @@ function TakeNote3(props) {
                 <Box sx={style} style={{ backgroundColor: props.note.backgroundcolor, padding: 10 }} >
                     <Box style={{position: 'relative', display: 'flex', flexDirection: 'row',justifyContent:'space-between'}}>
                         <Box>
-                        <InputBase className='input4' defaultValue={modState.title} onChange={takeTitle} />
-                        <InputBase className='input4' defaultValue={modState.discription} onChange={takeDescription} />
+                        <InputBase className={classes2.input4} defaultValue={modState.title} onChange={takeTitle} />
+                        <InputBase className={classes2.input4} defaultValue={modState.discription} onChange={takeDescription} />
                         </Box>
                         <Box >
                         <Tooltip style={{marginTop:-5}}>
@@ -177,7 +234,7 @@ function TakeNote3(props) {
                     </Box>
                 </Box>
             </Modal>
-        </div>
+        </Box>
     )
 }
 

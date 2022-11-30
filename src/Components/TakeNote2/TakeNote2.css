@@ -1,4 +1,4 @@
-.container2 {
+/* .container2 {
     width: 100vw;
     height: 30vh;
     border: 0px solid red;
@@ -6,45 +6,51 @@
     flex-direction: row;
     justify-content: center;
     position: relative;
-    bottom: 40px;
-}
-.note2 {
-    width: 40%;
+    bottom: 30px;
+} */
+
+/* .note2 {
+    width: 39%;
     height: 65%;
     justify-content: flex-start;
     align-items: flex-start;
     border: 1px solid #cecdcd;
     border-radius: 8px;
     row-gap: 6px;
-}
-.noteicon {
+} */
+
+/* .noteicon {
     height: 70%;
     width: 100%;
     display: flex;
     flex-direction: row;
     border: 0px solid red;
-}
-.txt {
+} */
+
+/* .txt {
     height: 33%;
     margin-left: 10px;
     margin-top: 15px;
     width: 80%;
-}
-.input2 {
+} */
+
+/* .input2 {
     bottom: 5px;
     row-gap: 10px;
     font-size: 15px; 
     border: none;
     width: 100%;
-}
-.pinicon {
+} */
+
+/* .pinicon {
     border: 0px solid black;
     display: flex;
     justify-content: flex-end;
     margin-bottom: 70px;
     width: 20%;
-}
-.closebutton {
+} */
+
+/* .closebutton {
     display: flex;
-    margin-left: 230px;
-}
+    margin-left: 220px;
+} */
