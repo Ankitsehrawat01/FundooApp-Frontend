@@ -17,36 +17,33 @@ import ColorPopper from '../ColorPopper/ColorPopper';
 import { makeStyles } from '@mui/styles';
 
 const useStyle = makeStyles({
-    container2: {
-        width: '100vw',
-        height: '30vh',
-        border: '0px solid red',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        position: 'relative',
-        bottom: '30px'
-    },
     note2: {
-        width: '39%',
-        height: '65%',
+        width: '40vw',
+        height: '20vh',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        border: '1px solid #cecdcd',
-        borderRadius: '8px',
-        rowGap: '6px'
+        border: '0px solid #cecdcd',
+        bottom: '55px',
+        left: '400px'
     },
     noteicon: {
         height: '70%',
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-between',
         border: '0px solid red'
     },
     txt: {
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
         height: '33%',
-        marginLeft: '10px',
-        marginTop: '15px',
+        left: '10px',
+        top: '15px',
         width: '80%'
     },
     input2: {
@@ -56,23 +53,65 @@ const useStyle = makeStyles({
         border: 'none',
         width: '100%'
     },
-    pinicon: {
-        border: '0px solid black',
-        display: 'flex',
-        justifyContent: 'flex-end',
-        marginBottom: '70px',
-        width: '20%'
-    },
-    closebutton: {
-        display: 'flex',
-        position: 'relative',
-        right: '5%'
-    },
     finalicon: {
+        height: '70%',
+        width: '95%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
+    },
+    // isons2: {
+    //     display:'flex',
+    //     width:'100%',
+    //     justifyContent:'space-between',
+    // },
+    // Close: {
+    //     position:'relative',
+    //     right:'20px'
+    // },
+
+    ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
+        note2: {
+            width: '75vw',
+            display: 'flex',
+            position: 'relative',
+            left: '70px'
+        },
+        finalicon: {
+            height: '70%',
+            width: '100%',
+            flexDirection: 'column'
+        },
+    },
+    ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
+        note2: {
+            width: '85vw',
+            display: 'flex',
+            position: 'relative',
+            left: '70px'
+        },
+        finalicon: {
+            height: '70%',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'row',
+        },
+    },
+
+    ['@media only screen and (min-width: 769px) and (max-width: 1024px)']: {
+        note2: {
+            width: '65vw',
+            display: 'flex',
+            position: 'relative',
+            left: '80px'
+        },
+        finalicon: {
+            height: '70%',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'row',
+        },
     }
 })
 
@@ -116,54 +155,53 @@ function TakeNote2(props) {
 
     return (
         <Box>
-            <Box className={classes1.container2}>
-                <Paper className={classes1.note2} style={{ backgroundColor: createnote.backgroundcolor }} elevation={5}>
-                    <Box className={classes1.noteicon}>
-                        <Box className={classes1.txt}>
-                            <InputBase className={classes1.input2} placeholder="Title.." onChange={takeTitle} />
-                            <InputBase className={classes1.input2} placeholder="Take a note..." onChange={takeDescription} />
-                        </Box>
-                        <Box className={classes1.pinicon}>
-                            <Tooltip>
-                                <IconButton> <PushPinOutlinedIcon /> </IconButton>
-                            </Tooltip>
-                        </Box>
-                    </Box>
-                    <Box className={classes1.finalicon}>
-                        <Box className={classes1.icons2}>
-                            <Tooltip title='Remind me'>
-                                <IconButton><AddAlertOutlinedIcon /> </IconButton>
-                            </Tooltip>
-                            <Tooltip title='Collabrator'>
-                                <IconButton> <PersonAddAlt1OutlinedIcon /> </IconButton>
-                            </Tooltip>
-                            <Tooltip title='color'>
-                                <IconButton> <ColorPopper action="create" openColorPopper={openColorPopper} /> </IconButton>
-                            </Tooltip>
+            <Paper className={classes1.note2} style={{ backgroundColor: createnote.backgroundcolor }} elevation={5}>
 
-                            <Tooltip title='Image'>
-                                <IconButton> <ImageOutlinedIcon /> </IconButton>
-                            </Tooltip>
-                            <Tooltip title='Archive' onClick={notesArchive} >
-                                <IconButton> <ArchiveOutlinedIcon /> </IconButton>
-                            </Tooltip>
-                            <Tooltip title='More'>
-                                <IconButton> <MoreVertOutlinedIcon /> </IconButton>
-                            </Tooltip>
-                            <Tooltip title='Undo'>
-                                <IconButton> <UndoOutlinedIcon /> </IconButton>
-                            </Tooltip>
-                            <Tooltip>
-                                <IconButton> <RedoOutlinedIcon /> </IconButton>
-                            </Tooltip>
-                        </Box>
-                        <Box className={classes1.closebutton}>
-                            <IconButton size='small' onClick={Create}>Close</IconButton>
-                        </Box>
-
+                <Box className={classes1.noteicon}>
+                    <Box className={classes1.txt}>
+                        <InputBase className={classes1.input2} placeholder="Title.." onChange={takeTitle} />
+                        <InputBase className={classes1.input2} placeholder="Take a note..." onChange={takeDescription} />
                     </Box>
-                </Paper>
-            </Box>
+                    <Box>
+                        <Tooltip>
+                            <IconButton> <PushPinOutlinedIcon /> </IconButton>
+                        </Tooltip>
+                    </Box>
+                </Box>
+
+                <Box className={classes1.finalicon}>
+                    <Box className={classes1.icons2}>
+                        <Tooltip title='Remind me'>
+                            <IconButton ><AddAlertOutlinedIcon size='small'/> </IconButton>
+                        </Tooltip>
+                        <Tooltip title='Collabrator'>
+                            <IconButton> <PersonAddAlt1OutlinedIcon size='small' /> </IconButton>
+                        </Tooltip>
+                        <Tooltip title='color'>
+                            <IconButton> <ColorPopper size='small' action="create" openColorPopper={openColorPopper} /> </IconButton>
+                        </Tooltip>
+
+                        <Tooltip title='Image'>
+                            <IconButton > <ImageOutlinedIcon size='small' /> </IconButton>
+                        </Tooltip>
+                        <Tooltip title='Archive' onClick={notesArchive} >
+                            <IconButton> <ArchiveOutlinedIcon size='small'/> </IconButton>
+                        </Tooltip>
+                        <Tooltip title='More'>
+                            <IconButton> <MoreVertOutlinedIcon size='small' /> </IconButton>
+                        </Tooltip>
+                        <Tooltip title='Undo'>
+                            <IconButton> <UndoOutlinedIcon size='small' /> </IconButton>
+                        </Tooltip>
+                        <Tooltip>
+                            <IconButton> <RedoOutlinedIcon size='small'/> </IconButton>
+                        </Tooltip>
+                    </Box>
+                    <Box className={classes1.Close}>
+                        <IconButton size='small' onClick={Create}>Close</IconButton>
+                    </Box>
+                </Box>
+            </Paper>
         </Box>
     )
 }

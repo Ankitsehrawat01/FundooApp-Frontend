@@ -45,15 +45,15 @@ const useStyle = makeStyles({
     },
     ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
         container1: {
-            width: '80vw',
-            left: '60px'
+            width: '75vw',
+            left: '70px'
         },
         note: {
             width: '100%',
             height: '100%',
         },
         textbox: {
-            width: '50%'
+            width: '45%'
         },
     },
     ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {

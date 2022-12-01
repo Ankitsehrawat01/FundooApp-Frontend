@@ -28,9 +28,9 @@ const useStyle= makeStyles({
         height: '23vh',
         position: 'relative',
         justifyContent: 'center',
-        marginRight: '12px',
+        marginRight: '15px',
         bottom: '30px',
-        marginBottom: '12px',
+        marginBottom: '15px',
         boxShadow: '2px 2px 6px rgb(169, 158, 158)'
     },
     note3: {
@@ -68,6 +68,77 @@ const useStyle= makeStyles({
         fontSize: '15px',
         border: 'none',
         width: '100%'
+    },
+    ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
+        container3: {
+            width: '75vw',
+            display: 'flex',
+            position: 'relative',
+            left: '3px'
+        },
+        note3: {
+            width: '75vw',
+            height: '23vh'
+        },
+        noteicon2: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+        },
+        input3: {
+            display: 'flex',
+            flexDirection: 'column',
+            height: '5vh',
+            width: '40vw'
+        },
+        icons3: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: '100%'
+        },
+    },
+    ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
+        container3: {
+            width: '40vw',
+            display: 'flex',
+            position: 'relative',
+            left: '4px',
+            marginRight: '15px'
+        },
+        note3: {
+            width: '40vw',
+            height: '23vh'
+        },
+        noteicon2: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+        },
+        input3: {
+            display: 'flex',
+            flexDirection: 'column',
+            height: '5vh',
+            width: '20vw'
+        },
+    },
+
+    ['@media only screen and (min-width: 769px) and (max-width: 1024px)']: {
+        container3: {
+            width: '28vw',
+            display: 'flex',
+            position: 'relative',
+            left: '4px'
+        },
+        note3: {
+            width: '28vw',
+            height: '23vh'
+        },
+        noteicon2: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+        },
     }
 })
 
@@ -164,22 +235,22 @@ function TakeNote3(props) {
 
                     <Box className={classes2.icons3}>
                         <Tooltip title='Remind me'>
-                            <IconButton><AddAlertOutlinedIcon /> </IconButton>
+                            <IconButton><AddAlertOutlinedIcon fontSize='x-small' /> </IconButton>
                         </Tooltip>
                         <Tooltip title='Collabrator'>
-                            <IconButton> <PersonAddAlt1OutlinedIcon /> </IconButton>
+                            <IconButton> <PersonAddAlt1OutlinedIcon fontSize='x-small' /> </IconButton>
                         </Tooltip>
                         <Tooltip title='color'>
-                            <IconButton> <ColorPopper action="update" id={props.note.noteId} colorUpdate={colorUpdate} /> </IconButton>
+                            <IconButton> <ColorPopper fontSize='x-small' action="update" id={props.note.noteId} colorUpdate={colorUpdate} /> </IconButton>
                         </Tooltip>
                         <Tooltip title='Delete'>
-                            <IconButton> <DeleteIcon onClick={() => deleteNotes(props.note.noteId)} /> </IconButton>
+                            <IconButton> <DeleteIcon fontSize='x-small' onClick={() => deleteNotes(props.note.noteId)} /> </IconButton>
                         </Tooltip>
                         <Tooltip title='Archive' onClick={() => archiveNotes(props.note.noteId)}>
-                            <IconButton> <ArchiveOutlinedIcon /> </IconButton>
+                            <IconButton> <ArchiveOutlinedIcon fontSize='x-small' /> </IconButton>
                         </Tooltip>
                         <Tooltip title='More'>
-                            <IconButton> <MoreVertOutlinedIcon /> </IconButton>
+                            <IconButton> <MoreVertOutlinedIcon fontSize='x-small'/> </IconButton>
                         </Tooltip>
                     </Box>
                 </Card>
