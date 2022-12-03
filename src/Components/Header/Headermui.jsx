@@ -183,11 +183,11 @@ function Headermui(props) {
                         component="div"
                         sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', width: '9vw', height: '9vh'}}>
-                            <Box style={{ width: '50%', height: '50px' }}>
+                        <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', width: '12vw', height: '9vh', border: '0px solid red'}}>
+                            <Box style={{ width: '50%', height: '50px', border: '0px solid red' }}>
                                 <img src='./Assets/keeplogo.png' style={{ width: '50px', height: '50px', marginTop: '10px' }} />
                             </Box>
-                            <Box style={{ display: 'flex', flexDirection: 'row', width: '50%', height: '20px', marginTop: '15px' }}>
+                            <Box style={{ display: 'flex', flexDirection: 'row', width: '50%', height: '20px', marginTop: '15px', border: '0px solid red' }}>
                             {props.label}
                             </Box>
                         </Box>

@@ -19,16 +19,21 @@ const useStyle = makeStyles({
     marginTop: '8%',
     height: '70vh',
     width: '32vw',
-    left: '35%'
+    left: '500px'
+  },
+  topbox: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+   
   },
   Head: {
     padding: '10px',
     top: '20px',
     fontSize: '25px',
-    
+
   },
   subhead: {
-    textAlign: 'center',
     padding: '3px',
     fontSize: '18px'
   },
@@ -38,6 +43,11 @@ const useStyle = makeStyles({
     width: '100%',
     left: '40px',
     top: '15px'
+  },
+  textfield: {
+    display: 'flex',
+    textAlign: 'center',
+    width: '410px'
   },
   forgotbtn: {
     display: 'flex',
@@ -74,7 +84,165 @@ const useStyle = makeStyles({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center'
+  },
+  ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
+
+    log: {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      height: '0vh',
+      width: '32vw',
+      left: '30px'
+    },
+    topbox: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      width: '250%'
+     
+    },
+    inp: {
+      width: '250%',
+      left: '2px',
+    },
+    forgotbtn: {
+     left: '5px',
+     width: '200%'
+    },
+    typetext: {
+      
+      width: '250%',
+      left: '0px'
+    }, 
+    learnbtn: {
+      left: '0px',
+      width: '200%'
+    },
+    bottompart: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignContent: 'center',
+      width: '280%',
+      left: '0px'
+    },
+    createlink: {
+      left: '0px',
+    },
+    loginbtn: {
+      display: 'flex',
+      position: 'relative',
+      top: '60px'
+    },
+  },
+  ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
+    log: {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      height: '0vh',
+      width: '32vw',
+      left: '80px'
+    },
+    topbox: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      width: '250%'
+    },
+    inp: {
+      width: '250%',
+      left: '2px',
+    },
+    textfield: {
+      width: '800px'
+    },
+    forgotbtn: {
+     left: '5px',
+     width: '200%'
+    },
+    typetext: {
+      
+      width: '250%',
+      left: '0px'
+    }, 
+    learnbtn: {
+      left: '0px',
+      width: '200%'
+    },
+    bottompart: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignContent: 'center',
+      width: '280%',
+      left: '0px'
+    },
+    createlink: {
+      left: '0px',
+    },
+    loginbtn: {
+      display: 'flex',
+      position: 'relative',
+      top: '60px',
+    },
+
+  },
+
+  ['@media only screen and (min-width: 769px) and (max-width: 1024px)']: {
+    log: {
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      position: 'relative',
+      marginTop: '8%',
+      height: '75vh',
+      width: '60vw',
+      top: '50px',
+      left: '140px'
+    },
+    textfield: {
+      display: 'flex',
+      textAlign: 'center',
+    },
+    inp: {
+      width: '100%',
+      left: '2px',
+    },
+    forgotbtn: {
+      left: '5px',
+      width: '100%'
+     },
+     typetext: {
+      width: '100%',
+      left: '0px'
+    },
+    learnbtn: {
+      left: '0px',
+      width: '100%'
+    },
+    bottompart: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignContent: 'center',
+      width: '100%',
+      left: '4px'
+    },
+    // loginbtn: {
+    //   display: 'flex',
+    //   position: 'relative',
+    //   top: '60px',
+    // },
+    // createlink: {
+    //   display: 'flex',
+    //   position: 'relative',
+    //   top: '60px',
+    // },
+
   }
+
 })
 
 function Login() {
@@ -136,17 +304,19 @@ function Login() {
   }
 
   return (
-    <Box>
+    <Box >
       <Paper className={classes3.log} elevation={5}>
-        <Box className={classes3.Head}>Fundoo</Box>
-        <Box className={classes3.subhead} > Sign-In</Box>
-        <Box className={classes3.subhead}>Use your Fundoo Account</Box>
-        <Box >
+        <Box className={classes3.topbox}>
+          <Box className={classes3.Head}>Fundoo</Box>
+          <Box className={classes3.subhead} > Sign-In</Box>
+          <Box className={classes3.subhead}>Use your Fundoo Account</Box>
+        </Box>
+        <Box  className={classes3.secondbox}>
           <Box className={classes3.inp}>
-            <TextField onChange={takeEmail} error={regexObj.emailborder} helperText={regexObj.emailhelper} id="outlined-basic" label="Enter your Email" variant="outlined" margin='normal' sx={{ width: 410 }} />
+            <TextField className={classes3.textfield} onChange={takeEmail} error={regexObj.emailborder} helperText={regexObj.emailhelper} id="outlined-basic" label="Enter your Email" variant="outlined" margin='normal' />
           </Box>
           <Box className={classes3.inp}>
-            <TextField onChange={takePassword} error={regexObj.passwordborder} helperText={regexObj.passwordhelper} id="outlined-basic" label="Password" variant="outlined" margin='normal' sx={{ width: 410 }} />
+            <TextField className={classes3.textfield} onChange={takePassword} error={regexObj.passwordborder} helperText={regexObj.passwordhelper} id="outlined-basic" label="Password" variant="outlined" margin='normal' />
           </Box>
         </Box>
         <Box>

@@ -57,6 +57,9 @@ function DashBoard() {
     const closeTakeNote2=()=>{
         setToggle(false)
     }
+    const autoRefresh= () =>{
+        getNote()
+    }
     const getNote = () => {
         retriveNoteAPI()
         .then((response)=>{console.log(response)
@@ -112,12 +115,12 @@ function DashBoard() {
             <div>
                 {/* conditional rendering*/}
                 {
-                    toggle ? <TakeNote2 closeTakeNote2= {closeTakeNote2}/> : <TakeNote1 openTakeNote2 ={openTakeNote2} />
+                    toggle ? <TakeNote2 autoRefresh={autoRefresh} closeTakeNote2= {closeTakeNote2}/> : <TakeNote1 openTakeNote2 ={openTakeNote2} />
                 }
                 <div className={classes5.listren}>
                     {/*  list rendering to retrive our all notes array*/}
                     {
-                        dataArray.map((note) => (<TakeNote3 note= {note} getNote={getNote} />))
+                        dataArray.map((note) => (<TakeNote3 note= {note} autoRefresh={autoRefresh} getNote={getNote} />))
                     }
                 </div>
             </div>

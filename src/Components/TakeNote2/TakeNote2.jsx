@@ -61,11 +61,14 @@ const useStyle = makeStyles({
         justifyContent: 'space-between',
         alignItems: 'center'
     },
-    // isons2: {
-    //     display:'flex',
-    //     width:'100%',
-    //     justifyContent:'space-between',
-    // },
+    isons2: {
+        display:'flex',
+        width:'100%',
+        justifyContent:'space-between',
+    },
+    name: {
+        border: '0px solid red'
+    },
     // Close: {
     //     position:'relative',
     //     right:'20px'
@@ -81,8 +84,17 @@ const useStyle = makeStyles({
         finalicon: {
             height: '70%',
             width: '100%',
-            flexDirection: 'column'
+            flexDirection: 'column',
         },
+        icons2 : {
+            width: '100%'
+        },
+        Close: {
+            position: 'relative',
+                width: '20%',
+                left: '100px'
+            },
+
     },
     ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
         note2: {
@@ -148,6 +160,7 @@ function TakeNote2(props) {
         createNoteAPI(createnote)
             .then((response) => {
                 console.log(response)
+                props.autoRefresh()
             })
             .catch((error) => { console.log(error) })
         console.log("Notes Created")
@@ -172,29 +185,29 @@ function TakeNote2(props) {
                 <Box className={classes1.finalicon}>
                     <Box className={classes1.icons2}>
                         <Tooltip title='Remind me'>
-                            <IconButton ><AddAlertOutlinedIcon size='small'/> </IconButton>
+                            <IconButton size='small'><AddAlertOutlinedIcon size='x-small' fontSize='small' className={classes1.name}/> </IconButton>
                         </Tooltip>
                         <Tooltip title='Collabrator'>
-                            <IconButton> <PersonAddAlt1OutlinedIcon size='small' /> </IconButton>
+                            <IconButton size='small'> <PersonAddAlt1OutlinedIcon size='x-small' fontSize='small'/> </IconButton>
                         </Tooltip>
                         <Tooltip title='color'>
-                            <IconButton> <ColorPopper size='small' action="create" openColorPopper={openColorPopper} /> </IconButton>
+                            <IconButton size='small'> <ColorPopper size='x-small' fontSize='small' action="create" openColorPopper={openColorPopper} /> </IconButton>
                         </Tooltip>
 
                         <Tooltip title='Image'>
-                            <IconButton > <ImageOutlinedIcon size='small' /> </IconButton>
+                            <IconButton size='small'> <ImageOutlinedIcon size='x-small' fontSize='small' /> </IconButton>
                         </Tooltip>
                         <Tooltip title='Archive' onClick={notesArchive} >
-                            <IconButton> <ArchiveOutlinedIcon size='small'/> </IconButton>
+                            <IconButton size='small'> <ArchiveOutlinedIcon size='x-small' fontSize='small'/> </IconButton>
                         </Tooltip>
                         <Tooltip title='More'>
-                            <IconButton> <MoreVertOutlinedIcon size='small' /> </IconButton>
+                            <IconButton size='small'> <MoreVertOutlinedIcon size='x-small' fontSize='small' /> </IconButton>
                         </Tooltip>
                         <Tooltip title='Undo'>
-                            <IconButton> <UndoOutlinedIcon size='small' /> </IconButton>
+                            <IconButton size='small'> <UndoOutlinedIcon size='small' fontSize='small' /> </IconButton>
                         </Tooltip>
                         <Tooltip>
-                            <IconButton> <RedoOutlinedIcon size='small'/> </IconButton>
+                            <IconButton size='small'> <RedoOutlinedIcon size='small' fontSize='small'/> </IconButton>
                         </Tooltip>
                     </Box>
                     <Box className={classes1.Close}>

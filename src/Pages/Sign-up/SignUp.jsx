@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { signUpApi } from '../Services/userService';
 import { useNavigate } from 'react-router-dom';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Card, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { width } from '@mui/system';
 
@@ -18,48 +18,53 @@ const useStyle = makeStyles({
     width: '55vw',
     height: '80vh',
     left: '330px',
-    top: '70px'
+    top: '70px',
+    border: '0px solid red'
   },
-
+  main: {
+    border: '0px solid red',
+    height: '100%',
+    width: '55%',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+    left: '20px'
+  },
   title: {
     fontSize: '35px',
     display: 'flex',
-    position: 'relative',
-    left: '10%'
+    position: 'relative'
   },
   subtitle: {
     display: 'flex',
     position: 'relative',
-    left: '10%',
-    marginBottom: '10%'
   },
   first: {
     display: 'flex',
     justifyContent: 'space-between',
     position: 'relative',
-    left: '10%',
+    top: '30px'
   },
   username: {
     display: 'flex',
     position: 'relative',
-    left: '10%',
+    top: '30px'
   },
   paragraph: {
     display: 'flex',
     position: 'relative',
-    left: '11%'
+    top: '30px'
   },
   current: {
     display: 'flex',
     position: 'relative',
-    left: '8%'
+    top: '30px'
   },
   password: {
     display: 'flex',
     justifyContent: 'space-between',
     position: 'relative',
-    left: '10%',
-    marginTop: '6%'
+    top: '50px'
   },
   paragraph1: {
     fontSize: '1px',
@@ -67,21 +72,20 @@ const useStyle = makeStyles({
     width: '30vw',
     border: '0px solid black',
     position: 'relative',
-    left: '3%'
+    top: '50px'
   },
   checkbox: {
     display: 'flex',
     flexDirection: 'row',
     position: 'relative',
-    left: '10%'
+    top: '50px'
   },
   below: {
     display: 'flex',
     flexDirection: 'row',
     position: 'relative',
     justifyContent: 'space-between',
-    left: '10%',
-    marginTop: '12%'
+    top: '100px'
   },
   logo: {
     display: 'flex',
@@ -89,18 +93,172 @@ const useStyle = makeStyles({
     border: '0px solid black',
     position: 'relative',
     bottom: '20px',
-    left: '10%'
+    border: '0px solid black',
+    left: '40px'
   },
   image: {
     display: 'flex',
     position: 'relative',
-    left: '7%'
+    left: '40px'
   },
   para: {
     display: 'flex',
     position: 'relative',
     border: '0px solid black',
-    width: '15vw'
+    width: '80%'
+  },
+  ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
+    reg: {
+      width: '95vw',
+      height: '90vh',
+      left: '10px',
+      top: '10px'
+    },
+    main: {
+      border: '0px solid red',
+      height: '70vh',
+      width: '90%',
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      left: '20px',
+      bottom: '50px'
+    },
+    first: {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      top: '30px',
+      rowGap: '5px'
+    },
+    password: {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      top: '50px',
+      rowGap: '5px',
+      width: '100%'
+    },
+    paragraph1: {
+      fontSize: '1px',
+      height: '3vh',
+      width: '30vw',
+      border: '0px solid black',
+      position: 'relative',
+      top: '50px',
+      width: '100%'
+    },
+    checkbox: {
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'relative',
+      top: '70px'
+    },
+    logo: {
+      display: 'none'
+    },
+
+  },
+  ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
+    reg: {
+      width: '95vw',
+      height: '90vh',
+      left: '10px',
+      top: '10px'
+    },
+    main: {
+      border: '0px solid red',
+      height: '70vh',
+      width: '90%',
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      left: '20px',
+      bottom: '50px'
+    },
+    first: {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      top: '30px',
+      rowGap: '5px'
+    },
+    password: {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      top: '50px',
+      rowGap: '5px',
+      width: '100%'
+    },
+    paragraph1: {
+      fontSize: '1px',
+      height: '3vh',
+      width: '30vw',
+      border: '0px solid black',
+      position: 'relative',
+      top: '50px',
+      width: '100%'
+    },
+    checkbox: {
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'relative',
+      top: '70px'
+    },
+    logo: {
+      display: 'none'
+    },
+  },
+  ['@media only screen and (min-width: 769px) and (max-width: 1024px)']: {
+    reg: {
+      width: '75vw',
+      height: '80vh',
+      left: '100px',
+      top: '60px'
+    },
+    main: {
+      border: '0px solid red',
+      height: '70vh',
+      width: '90%',
+      display: 'flex',
+      position: 'relative',
+      left: '20px',
+      bottom: '30px'
+    },
+    first: {
+      display: 'flex',
+      position: 'relative',
+      top: '30px',
+      rowGap: '5px'
+    },
+    password: {
+      display: 'flex',
+      position: 'relative',
+      top: '50px',
+      rowGap: '5px',
+      width: '100%'
+    },
+    paragraph1: {
+      fontSize: '1px',
+      height: '3vh',
+      width: '30vw',
+      border: '0px solid black',
+      position: 'relative',
+      top: '50px',
+      width: '100%'
+    },
+    checkbox: {
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'relative',
+      top: '70px'
+    },
+    image: {
+      display: 'flex',
+      position: 'relative',
+      left: '5px'
+    },
   }
 
 
@@ -152,6 +310,7 @@ function SignUp() {
     console.log(event.target.value)
     setsignupobj((prevState) => ({ ...prevState, password: event.target.value }))
   }
+  const navigate = useNavigate()
 
   const accountCreated = () => {
     console.log(signupobj)
@@ -197,63 +356,62 @@ function SignUp() {
     }
     if (checkFirstName === true && checkLastName === true && checkemail === true && checkpassword === true) {
       signUpApi(signupobj)
-        .then((response) => { console.log(response) })
+        .then((response) => { console.log(response);navigate('/') })
         .catch((error) => { console.log(error) })
       console.log("Account Created")
     }
   }
+  const SigninPage = () => {
+    navigate('/')
+  }
 
   return (
     <Box className={classes4.mainbox}>
-      <Paper className={classes4.reg} elevation={5}>
+      <Card className={classes4.reg} elevation={5}>
         <Box className={classes4.main}>
           <Box className={classes4.title}> Fundoo</Box>
           <Box className={classes4.subtitle}> Create your Fundoo Account</Box>
-            <Box className={classes4.first}>
-              <TextField id="outlined-basic" onChange={enterFirstName} error={regexObj.firstnameborder} helperText={regexObj.firstnamehelper} label="First name" variant="outlined" size='small' />
-              <TextField id="outlined-basic" onChange={enterLastName} error={regexObj.lastnameborder} helperText={regexObj.lastnamehelper} label="Last name" variant="outlined" size='small' />
+          <Box className={classes4.first}>
+            <TextField className={classes4.firstname} id="outlined-basic" onChange={enterFirstName} error={regexObj.firstnameborder} helperText={regexObj.firstnamehelper} label="First name" variant="outlined" size='small' />
+            <TextField id="outlined-basic" onChange={enterLastName} error={regexObj.lastnameborder} helperText={regexObj.lastnamehelper} label="Last name" variant="outlined" size='small' />
+          </Box>
+          <Box className={classes4.username}>
+            <TextField id="outlined-basic" onChange={enterEmail} error={regexObj.emailborder} helperText={regexObj.emailhelper} label="Username" variant="outlined" size='small' margin='normal' fullWidth='bool' />
+          </Box>
+          <Box className={classes4.paragraph}>
+            <Typography style={{ fontSize: 13 }}>You can use Letters,numbers or Periods</Typography>
+          </Box>
+          <Box className={classes4.current}>
+            <Button href="#text-buttons">Use my current email address instead</Button>
+          </Box>
+          <Box className={classes4.password}>
+            <TextField id="outlined-basic" onChange={enterPassword} error={regexObj.passwordborder} helperText={regexObj.passwordhelper} label="Password" variant="outlined" size='small' />
+            <TextField id="outlined-basic" onChange={confirmPassword} error={regexObj.confirmpasswordborder} helperText={regexObj.confirmpasswordhelper} label="Confirm Password" variant="outlined" size='small' />
+          </Box>
+          <Box className={classes4.paragraph1}>
+            <Typography style={{ fontSize: 13 }}>Use 8 or more characters with a mix of letters, numbers & symbols</Typography>
+          </Box>
+          <Box className={classes4.checkbox}>
+            <input type='checkbox' value='Show Password' name='Show Password' /> <label>Show Pasword</label>
+          </Box>
+          <Box className={classes4.below}>
+            <Box>
+              <Button onClick={SigninPage}>Sign in instead</Button>
             </Box>
-            <Box className={classes4.username}>
-              <TextField id="outlined-basic" onChange={enterEmail} error={regexObj.emailborder} helperText={regexObj.emailhelper} label="Username" variant="outlined" size='small' margin='normal' fullWidth='bool' />
+            <Box >
+              <Button variant="contained" size='small' onClick={accountCreated} > Next </Button>
             </Box>
-            <Box className={classes4.paragraph}>
-              <Typography style={{ fontSize: 13 }}>You can use Letters,numbers or Periods</Typography>
-            </Box>
-            <Box className={classes4.current}>
-              <Button href="#text-buttons">Use my current email address instead</Button>
-            </Box>
-            <Box className={classes4.password}>
-              <Box>
-                <TextField id="outlined-basic" onChange={enterPassword} error={regexObj.passwordborder} helperText={regexObj.passwordhelper} label="Password" variant="outlined" size='small' />
-              </Box>
-              <Box>
-                <TextField id="outlined-basic" onChange={confirmPassword} error={regexObj.confirmpasswordborder} helperText={regexObj.confirmpasswordhelper} label="Confirm Password" variant="outlined" size='small' />
-              </Box>
-            </Box>
-            <Box className={classes4.paragraph1}>
-              <Typography style={{ fontSize: 13 }}>Use 8 or more characters with a mix of letters, numbers & symbols</Typography>
-            </Box>
-            <Box className={classes4.checkbox}>
-              <input type='checkbox' value='Show Password' name='Show Password' /> <label>Show Pasword</label>
-            </Box>
-            <Box className={classes4.below}>
-              <Box>
-                <Button href="#text-buttons">Sign in instead</Button>
-              </Box>
-              <Box >
-                <Button variant="contained" size='small' onClick={accountCreated} > Next </Button>
-              </Box>
-            </Box>
+          </Box>
         </Box>
         <Box className={classes4.logo}>
           <Box className={classes4.image}>
-            <img src='./assets/SignUp-image.jpeg' alt="image" style={{ height: '25vh', width: '25vh'}} />
+            <img src='./assets/SignUp-image.jpeg' alt="image" style={{ height: '25vh', width: '25vh' }} />
           </Box>
           <Box className={classes4.para}>
             <Typography>One account. All of Fundoo working for you.</Typography>
           </Box>
         </Box>
-      </Paper>
+      </Card>
     </Box>
   )
 }

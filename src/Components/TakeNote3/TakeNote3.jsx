@@ -18,7 +18,7 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import { makeStyles } from '@mui/styles';
 
-const useStyle= makeStyles({
+const useStyle = makeStyles({
     container3: {
         display: 'flex',
         flexDirection: 'column',
@@ -41,7 +41,7 @@ const useStyle= makeStyles({
         display: 'flex',
         flexDirection: 'row',
         height: '17vh'
-    
+
     },
     txt2: {
         display: 'flex',
@@ -68,6 +68,28 @@ const useStyle= makeStyles({
         fontSize: '15px',
         border: 'none',
         width: '100%'
+    },
+    style: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '40vw',
+        height: '20vh',
+        backgroundColor: 'white',
+        border: '0px solid #000',
+        boxShadow: 24,
+        outline: 'none',
+        border: 'none',
+
+    },
+    modalicon: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        position: 'relative',
+        top: '30px',
+        width: '95%'
     },
     ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
         container3: {
@@ -97,6 +119,9 @@ const useStyle= makeStyles({
             justifyContent: 'space-between',
             width: '100%'
         },
+        style: {
+            width: '90vw'
+        },
     },
     ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
         container3: {
@@ -121,6 +146,9 @@ const useStyle= makeStyles({
             height: '5vh',
             width: '20vw'
         },
+        style: {
+            width: '60vw'
+        },
     },
 
     ['@media only screen and (min-width: 769px) and (max-width: 1024px)']: {
@@ -139,6 +167,9 @@ const useStyle= makeStyles({
             flexDirection: 'row',
             justifyContent: 'space-between'
         },
+        style: {
+            width: '60vw'
+        },
     }
 })
 
@@ -146,21 +177,6 @@ function TakeNote3(props) {
 
     const classes2 = useStyle()
 
-    // for modal
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 620,
-        height: 150,
-        bgcolor: 'background.paper',
-        border: '0px solid #000',
-        boxShadow: 24,
-        outline: 'none',
-        border: 'none',
-        
-    };
     const [open, setOpen] = React.useState(false);
     const [modState, setModState] = useState({
         noteId: '',
@@ -184,7 +200,9 @@ function TakeNote3(props) {
     //for archieve
     const archiveNotes = (id) => {
         archiveNoteAPI(id)
-            .then((response) => console.log(response))
+            .then((response) => {console.log(response)
+                props.autoRefresh()
+            })
             .catch((error) => console.log(error))
         console.log('Archive Successful')
     }
@@ -192,9 +210,13 @@ function TakeNote3(props) {
         props.getNote()
     }
 
+
     const deleteNotes = (id) => {
         deleteNoteAPI(id)
-            .then((response) => console.log(response))
+            .then((response) => {
+                console.log(response)
+                props.autoRefresh()
+            })
             .catch((error) => console.log(error))
         console.log('Delete Successful')
     }
@@ -210,7 +232,9 @@ function TakeNote3(props) {
     const updateNoteBox = (noteId) => {
         setOpen(false)
         updateNoteAPI(noteId, modState)
-            .then((response) => console.log(response))
+            .then((response) => {console.log(response)
+                props.autoRefresh()
+            })
             .catch((error) => console.log(error))
         console.log('Update Successful')
     }
@@ -250,7 +274,7 @@ function TakeNote3(props) {
                             <IconButton> <ArchiveOutlinedIcon fontSize='x-small' /> </IconButton>
                         </Tooltip>
                         <Tooltip title='More'>
-                            <IconButton> <MoreVertOutlinedIcon fontSize='x-small'/> </IconButton>
+                            <IconButton> <MoreVertOutlinedIcon fontSize='x-small' /> </IconButton>
                         </Tooltip>
                     </Box>
                 </Card>
@@ -261,47 +285,51 @@ function TakeNote3(props) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style} style={{ backgroundColor: props.note.backgroundcolor, padding: 10 }} >
-                    <Box style={{position: 'relative', display: 'flex', flexDirection: 'row',justifyContent:'space-between'}}>
+                <Box className={classes2.style} style={{ backgroundColor: props.note.backgroundcolor, padding: 10 }} >
+                    <Box style={{ position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Box>
-                        <InputBase className={classes2.input4} defaultValue={modState.title} onChange={takeTitle} />
-                        <InputBase className={classes2.input4} defaultValue={modState.discription} onChange={takeDescription} />
+                            <InputBase className={classes2.input4} defaultValue={modState.title} onChange={takeTitle} />
+                            <InputBase className={classes2.input4} defaultValue={modState.discription} onChange={takeDescription} />
                         </Box>
                         <Box >
-                        <Tooltip style={{marginTop:-5}}>
-                            <IconButton> <PushPinOutlinedIcon/> </IconButton>
-                        </Tooltip>
+                            <Tooltip style={{ marginTop: -5 }}>
+                                <IconButton> <PushPinOutlinedIcon /> </IconButton>
+                            </Tooltip>
                         </Box>
                     </Box>
-                    <Box style={{display: 'flex', flexDirection: 'row', position:'relative', top:30}}>
-                        <Tooltip title='Remind me'>
-                            <IconButton><AddAlertOutlinedIcon /> </IconButton>
-                        </Tooltip>
-                        <Tooltip title='Collabrator'>
-                            <IconButton> <PersonAddAlt1OutlinedIcon /> </IconButton>
-                        </Tooltip>
-                        <Tooltip title='color'>
-                            <IconButton> <ColorLensIcon/> </IconButton>
-                        </Tooltip>
+                    <Box className={classes2.modalicon}>
+                        <Box>
+                            <Tooltip title='Remind me'>
+                                <IconButton><AddAlertOutlinedIcon /> </IconButton>
+                            </Tooltip>
+                            <Tooltip title='Collabrator'>
+                                <IconButton> <PersonAddAlt1OutlinedIcon /> </IconButton>
+                            </Tooltip>
+                            <Tooltip title='color'>
+                                <IconButton> <ColorLensIcon /> </IconButton>
+                            </Tooltip>
 
-                        <Tooltip title='Image'>
-                            <IconButton> <ImageOutlinedIcon /> </IconButton>
-                        </Tooltip>
-                        <Tooltip title='Archive'>
-                            <IconButton> <ArchiveOutlinedIcon /> </IconButton>
-                        </Tooltip>
-                        <Tooltip title='More'>
-                            <IconButton> <MoreVertOutlinedIcon /> </IconButton>
-                        </Tooltip>
-                        <Tooltip title='Undo'>
-                            <IconButton> <UndoOutlinedIcon /> </IconButton>
-                        </Tooltip>
-                        <Tooltip>
-                            <IconButton> <RedoOutlinedIcon /> </IconButton>
-                        </Tooltip>
-                        <Tooltip style={{display: 'flex', marginLeft: 200}}>
-                            <IconButton size='small' onClick={() => updateNoteBox(modState.noteId)}>Close</IconButton>
-                        </Tooltip>
+                            <Tooltip title='Image'>
+                                <IconButton> <ImageOutlinedIcon /> </IconButton>
+                            </Tooltip>
+                            <Tooltip title='Archive'>
+                                <IconButton> <ArchiveOutlinedIcon /> </IconButton>
+                            </Tooltip>
+                            <Tooltip title='More'>
+                                <IconButton> <MoreVertOutlinedIcon /> </IconButton>
+                            </Tooltip>
+                            <Tooltip title='Undo'>
+                                <IconButton> <UndoOutlinedIcon /> </IconButton>
+                            </Tooltip>
+                            <Tooltip>
+                                <IconButton> <RedoOutlinedIcon /> </IconButton>
+                            </Tooltip>
+                        </Box>
+                        <Box>
+                            <Tooltip>
+                                <IconButton size='small' onClick={() => updateNoteBox(modState.noteId)}>Close</IconButton>
+                            </Tooltip>
+                        </Box>
                     </Box>
                 </Box>
             </Modal>
